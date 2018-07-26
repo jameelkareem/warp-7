@@ -1,0 +1,28 @@
+1. Execute the following commands in a new terminal in Ubuntu.
+
+$ mkdir ~/bin
+$ curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+$ chmod a+x ~/bin/repo
+$ PATH=${PATH}:~/bin
+$ mkdir fsl-community-bsp
+$ cd fsl-community-bsp
+$ repo init -u https://github.com/Freescale/fsl-community-bsp-platform -b krogoth
+$ repo sync
+
+2. Enter the command:
+$ source setup-environment build
+NOTE: Accept the End User License Agreement.
+
+3. Copy the files (local.conf and bblayers.conf) present in the attached folder "murata-files" to
+   $ <project-name-warp7>/fsl-community-bsp/build
+
+4. Delete the folder "sources" present in the directory "<project-name-warp7>/fsl-community-bsp/"
+
+5. Copy the folder "sources" present in the directory "murata-files" to "<project-name-warp7>/fsl-community-bsp/"
+
+6. From the build directory, Enter the following command.
+   <project-name-warp7>/fsl-community-bsp/build$ bitbake core-image-base
+
+7. Final SD card image ( Ex: core-image-base-imx7s-warp-20180612214224.rootfs.sdcard.gz ) can be found in the following path:
+
+   <fsl-community-bsp>/build/tmp/deploy/images/imx7s-warp$
